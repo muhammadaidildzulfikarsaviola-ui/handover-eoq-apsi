@@ -1,36 +1,40 @@
-# EOQ APSI Handover
+# Handover EOQ APSI
 
-A PHP + MySQL workspace for EOQ inventory analysis and APSI teaching-assistant handover.
-
-## Current foundation
-- Responsive dashboard shell and navigation.
-- Empty MySQL schema for categories, items, and EOQ analyses.
-- PDO configuration with environment-variable overrides.
-- Dashboard KPI queries and recent-analysis query.
-- Chart.js cost trend chart driven by analysis records, with a proper empty state.
-- Placeholder pages for item management, EOQ calculator, analysis history, reports, and guide.
+Web sederhana untuk pencatatan barang dan analisis Economic Order Quantity (EOQ), dibuat dengan PHP native dan MySQL.
 
 ## Stack
-- PHP 8+ recommended
+- PHP 8.1+
 - MySQL / MariaDB
 - HTML, CSS, JavaScript
-- Chart.js (CDN)
+- Chart.js untuk grafik dashboard
 
-## Local setup (XAMPP)
-1. Clone the repository into `D:\\Code\\Handover-asdos-apsi` or copy the files there.
-2. Make the folder accessible through Apache. Easiest option is to put it under `C:\\xampp\\htdocs\\Handover-asdos-apsi`; otherwise configure an Apache virtual host for `D:\\Code\\Handover-asdos-apsi`.
-3. Start Apache and MySQL in XAMPP.
-4. In phpMyAdmin, import `database/schema.sql`. It creates the `handover_eoq_apsi` database and tables but inserts no data.
-5. Review `config/database.php`. Defaults are host `127.0.0.1`, port `3306`, database `handover_eoq_apsi`, user `root`, and blank password. You can override them with `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, and `DB_PASSWORD` environment variables.
-6. Open `http://localhost/Handover-asdos-apsi/` if the project folder is under `htdocs`.
+## Menjalankan secara lokal
+1. Clone repo ke folder project.
+2. Pastikan Apache dan MySQL aktif di XAMPP.
+3. Import `database/schema.sql` melalui phpMyAdmin. Database dan tabel dibuat tanpa data contoh.
+4. Pastikan pengaturan koneksi di `config/database.php` cocok dengan MySQL lokal.
+5. Buka melalui Apache, misalnya `http://localhost/Handover-asdos-apsi/`. Jika folder berada di luar `htdocs`, gunakan konfigurasi VirtualHost Apache.
 
-## EOQ variables
-- `D`: annual demand
-- `S`: ordering cost per order
-- `H`: holding cost per unit per year
-- `EOQ = sqrt((2 * D * S) / H)`
+## Menu yang tersedia
+- Dashboard: ringkasan barang, analisis, total biaya, dan grafik.
+- Data Barang: tambah, edit, cari, aktifkan, dan nonaktifkan barang.
+- Analisis EOQ: input D, S, H; hitung EOQ; simpan hasil ke database.
+- Riwayat Analisis: cari analisis dan buka detail perhitungan.
+- Laporan: rekap analisis dan ekspor CSV.
+- Panduan EOQ: rumus, definisi variabel, dan interpretasi hasil.
+- Anggota Kelompok: halaman catatan sederhana untuk handover.
 
-## Important
-- Do not commit real credentials.
-- Dashboard values are queried from MySQL and start at zero when the tables are empty; no dummy statistics are seeded.
-- Item management and calculation forms are scaffold pages only at this stage. Complete those modules before using this as a live workflow.
+## Rumus
+- EOQ = sqrt((2 * D * S) / H)
+- Frekuensi order = D / EOQ
+- Interval order = 365 / frekuensi order
+- Biaya relevan = biaya pemesanan + biaya penyimpanan
+
+D adalah kebutuhan tahunan, S adalah biaya setiap pemesanan, dan H adalah biaya penyimpanan per unit per tahun.
+
+## Catatan
+- Dashboard mulai dari nol ketika database belum berisi data.
+- Tidak ada seed data atau statistik palsu.
+- Kode barang harus unik.
+- Barang yang sudah dipakai di analisis dinonaktifkan, bukan dihapus, agar riwayat lama tetap valid.
+- Jangan commit kredensial database produksi.
