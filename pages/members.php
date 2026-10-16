@@ -1,0 +1,2 @@
+<section class="page-intro"><div><h2>Anggota Kelompok</h2><p>Catat nama anggota atau pihak yang terlibat dalam handover.</p></div></section>
+<section class="panel"><h3>Daftar anggota</h3><p>Belum ada daftar anggota yang diatur di database. Edit file <code>pages/members.php</code> untuk mengisi nama tim yang benar, atau kita bisa menambahkan modul anggota ke database jika memang dibutuhkan.</p></section>
