@@ -1,0 +1,14 @@
+# Local environment / secrets
+.env
+config/database.local.php
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Dependencies / generated files
+vendor/
+node_modules/
+*.log
