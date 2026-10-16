@@ -89,10 +89,83 @@ Kalau masih bermasalah, catat pesan error yang muncul supaya lebih mudah mencari
 
 ## Catatan untuk penerus
 
-Website ini dibuat supaya bisa dilanjutkan dan dikembangkan oleh orang berikutnya.
+Website ini dibuat untuk contoh Sistem Informasi berbasis EOQ
 
 Sebelum mengubah program, sebaiknya pahami dulu fungsi setiap menu dan pastikan website masih berjalan setelah perubahan dilakukan.
 
 Kalau ingin menambahkan fitur baru, usahakan perubahan tersebut tidak merusak fitur yang sudah ada.
 
 Selamat melanjutkan project!
+
+
+## How to Use This Repository
+
+Bagian ini menjelaskan cara menggunakan repository agar project bisa dilanjutkan dan dikembangkan dengan aman.
+
+### 1. Download Project
+
+Jika belum memiliki project di laptop:
+
+1. Buka repository GitHub ini.
+2. Klik tombol **Code**, lalu pilih **Download ZIP**.
+3. Ekstrak file ZIP ke folder `htdocs` XAMPP.
+4. Ikuti petunjuk pada bagian Cara Menjalankan Website.
+
+Jika menggunakan Git, jalankan:
+
+```bash
+git clone https://github.com/muhammadaidildzulfikarsaviola-ui/handover-eoq-apsi.git
+```
+
+### 2. Menjalankan Website
+
+1. Buka XAMPP dan nyalakan Apache serta MySQL.
+2. Pastikan database sudah dibuat dan diimpor sesuai petunjuk instalasi.
+3. Buka website melalui browser.
+4. Periksa dashboard dan setiap menu untuk memastikan website berjalan dengan baik.
+
+### 3. Mengembangkan Project
+
+Sebelum mulai mengubah kode, ambil perubahan terbaru dari GitHub:
+
+```bash
+git pull origin main
+```
+
+Setelah melakukan perubahan:
+
+1. Simpan file yang sudah diedit.
+2. Jalankan website dan periksa apakah perubahan berfungsi.
+3. Periksa daftar perubahan dengan `git status`.
+4. Simpan perubahan menggunakan commit.
+5. Kirim perubahan ke GitHub menggunakan push.
+
+Contoh perintah:
+
+```bash
+git add .
+git commit -m "feat: add new feature"
+git push origin main
+```
+
+Sesuaikan pesan commit dengan perubahan yang dilakukan.
+
+### 4. Aturan Pengembangan
+
+- Jangan mengubah konfigurasi database tanpa memahami dampaknya.
+- Jangan memasukkan password, token, atau informasi rahasia ke repository.
+- Jangan menghapus fitur yang sudah ada tanpa memeriksa ketergantungannya.
+- Pastikan website tetap berjalan setelah melakukan perubahan.
+- Gunakan pesan commit yang menjelaskan perubahan secara singkat.
+- Jika bekerja bersama orang lain, koordinasikan perubahan sebelum melakukan push agar tidak terjadi konflik.
+
+### 5. Jika Push Ditolak
+
+Jika Git menolak push karena repository lokal tertinggal dari GitHub, jalankan:
+
+```bash
+git pull --rebase origin main
+git push origin main
+```
+
+Jika muncul konflik, selesaikan konflik terlebih dahulu sebelum melakukan push. Jangan menggunakan `git push --force` sembarangan karena dapat menimpa riwayat perubahan di repository.
