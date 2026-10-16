@@ -1,6 +1,3 @@
--- EOQ APSI Handover
--- Creates empty tables only. No sample/demo rows are inserted.
-
 CREATE DATABASE IF NOT EXISTS handover_eoq_apsi
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;

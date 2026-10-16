@@ -1,7 +1,5 @@
 <?php
 declare(strict_types=1);
-
-/** Local MySQL connection. Keep real credentials out of version control. */
 $host = getenv('DB_HOST') ?: '127.0.0.1';
 $port = getenv('DB_PORT') ?: '3306';
 $dbName = getenv('DB_NAME') ?: 'handover_eoq_apsi';
